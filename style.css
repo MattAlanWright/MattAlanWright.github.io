@@ -61,6 +61,11 @@ a:hover {
     line-height: 1.5;
 }
 
+/* Skills Section */
+.skills-list {
+    line-height: 1.8;
+}
+
 /* Experience Section */
 .work-dates {
     color: gray;
