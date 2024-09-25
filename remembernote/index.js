@@ -172,7 +172,6 @@ function buildQuestionsAndAnswers() {
     const activeChordQuestionGenerators = getCheckedChordQuestions();
 
     for (const key of activeKeys) {
-        console.log(key)
         for (const questionGenerator of activeKeyQuestionGenerators) {
             qas.push(questionGenerator(key));
         }
