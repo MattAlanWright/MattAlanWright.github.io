@@ -134,6 +134,12 @@ for (const questionType in keyQuestionCheckboxes) {
     });
 }
 
+for (const questionType in chordQuestionCheckboxes) {
+    chordQuestionCheckboxes[questionType].addEventListener("change", () => {
+        refresh();
+    });
+}
+
 function getCheckedKeys() {
     const checkedKeys = [];
     for (const key in keyCheckboxes) {
