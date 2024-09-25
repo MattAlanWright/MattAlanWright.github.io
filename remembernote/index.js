@@ -1,3 +1,31 @@
+// Elements
+const flashCardQuestionText = document.getElementById("flash-card-question");
+const flashCardAnswerText = document.getElementById("flash-card-answer");
+const showBtn = document.getElementById("show-btn");
+const nextBtn = document.getElementById("next-btn");
+
+const keyCheckboxes = {
+    C: document.getElementById("c-checkbox"),
+    F: document.getElementById("f-checkbox"),
+    Bb: document.getElementById("bb-checkbox"),
+}
+
+const keyQuestionCheckboxes = {
+    two: document.getElementById("two-checkbox"),
+    fiveSeven: document.getElementById("five-seven-checkbox"),
+    twoFiveOne: document.getElementById("two-five-one-checkbox"),
+}
+
+const chordQuestionCheckboxes = {
+    chordThird: document.getElementById("chord-third-checkbox"),
+    chordSeventh: document.getElementById("chord-seventh-checkbox"),
+}
+
+const state = {
+    currentQuestionIndex: 0,
+    questionsAndAnswers: []
+}
+
 function makeKey(key, chords) {
     return {
         key: key,
@@ -21,7 +49,7 @@ function makeChord(name, notes) {
     return chord;
 }
 
-const chords = {
+const allChords = {
     // C
     Dm7: makeChord("Dm7", ["D", "F", "A", "C"]),
     G7: makeChord("G7", ["G", "B", "D", "F"]),
@@ -38,13 +66,11 @@ const chords = {
     Bbmaj7: makeChord("Bbmaj7", ["Bb", "D", "F", "A"]),
 };
 
-const keys = [
-    makeKey("C", [chords.Dm7, chords.G7, chords.Cmaj7]),
-    makeKey("F", [chords.Gm7, chords.C7, chords.Fmaj7]),
-    makeKey("Bb", [chords.Cm7, chords.F7, chords.Bbmaj7]),
-];
-
-let currentQuestionIndex = 0;
+const allKeys = {
+    C: makeKey("C", [allChords.Dm7, allChords.G7, allChords.Cmaj7]),
+    F: makeKey("F", [allChords.Gm7, allChords.C7, allChords.Fmaj7]),
+    Bb: makeKey("Bb", [allChords.Cm7, allChords.F7, allChords.Bbmaj7]),
+};
 
 function makeV7QuestionAndAnswer(key) {
     return {
@@ -67,72 +93,130 @@ function makeTwoFiveOneQuestionAndAnswer(key) {
     };
 }
 
-function makeThirdOfChordQuestionAndAnswer(chordName) {
-    const chord = chords[chordName];
+function makeThirdOfChordQuestionAndAnswer(chord) {
     return {
         question: `3rd of ${chord.name}`,
         answer: chord.iii,
     };
 }
 
-function makeSeventhOfChordQuestionAndAnswer(chordName) {
-    const chord = chords[chordName];
+function makeSeventhOfChordQuestionAndAnswer(chord) {
     return {
         question: `7th of ${chord.name}`,
         answer: chord.vii,
     };
 }
 
-function makeQuestionsAndAnswers(keys) {
-    const questionsAndAnswers = [];
+const keyQuestionGenerators = {
+    two: makeTwoQuestionAndAnswer,
+    fiveSeven: makeV7QuestionAndAnswer,
+    twoFiveOne: makeTwoFiveOneQuestionAndAnswer,
+}
 
-    for (const key of keys) {
-        questionsAndAnswers.push(makeV7QuestionAndAnswer(key));
-        questionsAndAnswers.push(makeTwoQuestionAndAnswer(key));
-        questionsAndAnswers.push(makeTwoFiveOneQuestionAndAnswer(key));
-    }
-
-    // for (const chord in chords) {
-    //     questionsAndAnswers.push(makeThirdOfChordQuestionAndAnswer(chord));
-    //     questionsAndAnswers.push(makeSeventhOfChordQuestionAndAnswer(chord));
-    // }
-
-    return questionsAndAnswers;
+const chordQuestionGenerators = {
+    chordThird: makeThirdOfChordQuestionAndAnswer,
+    chordSeventh: makeSeventhOfChordQuestionAndAnswer
 }
 
 function getRandomInt(max) {
     return Math.floor(Math.random() * max);
 }
 
-function selectRandomQuestionAndAnswer(questionsAndAnswers) {
-    let i = getRandomInt(questionsAndAnswers.length);
-    while (i === currentQuestionIndex) {
-        i = getRandomInt(questionsAndAnswers.length);
-    }
-    currentQuestionIndex = i;
-    return questionsAndAnswers[i];
+for (const key in keyCheckboxes) {
+    keyCheckboxes[key].addEventListener("change", () => {
+        refresh();
+    });
 }
 
-const allQuestionsAndAnswers = makeQuestionsAndAnswers(keys);
+for (const questionType in keyQuestionCheckboxes) {
+    keyQuestionCheckboxes[questionType].addEventListener("change", () => {
+        refresh();
+    });
+}
 
-const flashCardQuestionText = document.getElementById("flash-card-question");
-const flashCardAnswerText = document.getElementById("flash-card-answer");
+function getCheckedKeys() {
+    const checkedKeys = [];
+    for (const key in keyCheckboxes) {
+        if (keyCheckboxes[key].checked) {
+            checkedKeys.push(allKeys[key]);
+        }
+    }
+    return checkedKeys;
+}
+
+function getCheckedKeyQuestions() {
+    const checkedQuestionGenerators = [];
+    for (const questionType in keyQuestionCheckboxes) {
+        if (keyQuestionCheckboxes[questionType].checked) {
+            checkedQuestionGenerators.push(keyQuestionGenerators[questionType]);
+        }
+    }
+    return checkedQuestionGenerators;
+}
+
+function getCheckedChordQuestions() {
+    const checkedChordQuestionGenerators = [];
+    for (const questionType in chordQuestionCheckboxes) {
+        if (chordQuestionCheckboxes[questionType].checked) {
+            checkedChordQuestionGenerators.push(chordQuestionGenerators[questionType]);
+        }
+    }
+    return checkedChordQuestionGenerators;
+}
+
+function buildQuestionsAndAnswers() {
+    const qas = [];
+
+    const activeKeys = getCheckedKeys();
+    const activeKeyQuestionGenerators = getCheckedKeyQuestions();
+    const activeChordQuestionGenerators = getCheckedChordQuestions();
+
+    for (const key of activeKeys) {
+        console.log(key)
+        for (const questionGenerator of activeKeyQuestionGenerators) {
+            qas.push(questionGenerator(key));
+        }
+
+        for (const questionGenerator of activeChordQuestionGenerators) {
+            qas.push(questionGenerator(key.chords.ii));
+            qas.push(questionGenerator(key.chords.V));
+            qas.push(questionGenerator(key.chords.I));
+        }
+    }
+
+    return qas;
+}
+
+function selectRandomQuestionAndAnswer() {
+    let i = getRandomInt(state.questionsAndAnswers.length);
+    state.currentQuestionIndex = i;
+    return state.questionsAndAnswers[i];
+}
+
+function clearQuestionAndAnswer() {
+    flashCardAnswerText.style.visibility = "visible";
+    flashCardQuestionText.innerText = "--";
+    flashCardAnswerText.innerText = "--";
+}
 
 function nextQuestionAndAnswer() {
     flashCardAnswerText.style.visibility = "hidden";
-    qa = selectRandomQuestionAndAnswer(allQuestionsAndAnswers);
+    qa = selectRandomQuestionAndAnswer();
     flashCardQuestionText.innerText = qa.question;
     flashCardAnswerText.innerText = qa.answer;
 }
 
-const showBtn = document.getElementById("show-btn");
+function refresh() {
+    state.questionsAndAnswers = buildQuestionsAndAnswers();
+    clearQuestionAndAnswer();
+}
+
 showBtn.addEventListener("click", () => {
     flashCardAnswerText.style.visibility = "visible";
 });
 
-const nextBtn = document.getElementById("next-btn");
 nextBtn.addEventListener("click", () => {
     nextQuestionAndAnswer();
 });
 
-nextQuestionAndAnswer();
+refresh()
