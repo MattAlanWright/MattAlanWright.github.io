@@ -21,6 +21,8 @@ const chordQuestionCheckboxes = {
     chordThird: document.getElementById("chord-third-checkbox"),
     chordSeventh: document.getElementById("chord-seventh-checkbox"),
     chordNotes: document.getElementById("chord-notes-checkbox"),
+    chordThirdAndSeventh: document.getElementById("chord-third-and-seventh-checkbox"),
+    chordSeventhAndThird: document.getElementById("chord-seventh-and-third-checkbox"),
 }
 
 const state = {
@@ -122,6 +124,20 @@ function makeSeventhOfChordQuestionAndAnswer(chord) {
     };
 }
 
+function makeThirdAndSeventhOfChordQuestionAndAnswer(chord) {
+    return {
+        question: `3 - 7 of ${chord.name}`,
+        answer: `${chord.iii} - ${chord.vii}`,
+    };
+}
+
+function makeSeventhAndThirdOfChordQuestionAndAnswer(chord) {
+    return {
+        question: `7 - 3 of ${chord.name}`,
+        answer: `${chord.vii} - ${chord.iii}`,
+    };
+}
+
 const keyQuestionGenerators = {
     two: makeTwoQuestionAndAnswer,
     fiveSeven: makeV7QuestionAndAnswer,
@@ -131,7 +147,9 @@ const keyQuestionGenerators = {
 const chordQuestionGenerators = {
     chordNotes: makeChordNotesQuestionAndAnswer,
     chordThird: makeThirdOfChordQuestionAndAnswer,
-    chordSeventh: makeSeventhOfChordQuestionAndAnswer
+    chordSeventh: makeSeventhOfChordQuestionAndAnswer,
+    chordThirdAndSeventh: makeThirdAndSeventhOfChordQuestionAndAnswer,
+    chordSeventhAndThird: makeSeventhAndThirdOfChordQuestionAndAnswer,
 }
 
 function getRandomInt(max) {
