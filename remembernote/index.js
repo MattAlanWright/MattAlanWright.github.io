@@ -5,9 +5,10 @@ const showBtn = document.getElementById("show-btn");
 const nextBtn = document.getElementById("next-btn");
 
 const keyCheckboxes = {
-    C: document.getElementById("c-checkbox"),
-    F: document.getElementById("f-checkbox"),
     Bb: document.getElementById("bb-checkbox"),
+    F: document.getElementById("f-checkbox"),
+    C: document.getElementById("c-checkbox"),
+    G: document.getElementById("g-checkbox"),
 }
 
 const keyQuestionCheckboxes = {
@@ -51,26 +52,32 @@ function makeChord(name, notes) {
 }
 
 const allChords = {
-    // C
-    Dm7: makeChord("Dm7", ["D", "F", "A", "C"]),
-    G7: makeChord("G7", ["G", "B", "D", "F"]),
-    Cmaj7: makeChord("Cmaj7", ["C", "E", "G", "B"]),
+    // Bb
+    Cm7: makeChord("Cm7", ["C", "Eb", "G", "Bb"]),
+    F7: makeChord("F7", ["F", "A", "C", "Eb"]),
+    Bbmaj7: makeChord("Bbmaj7", ["Bb", "D", "F", "A"]),
 
     // F
     Gm7: makeChord("Gm7", ["G", "Bb", "D", "F"]),
     C7: makeChord("C7", ["C", "E", "G", "Bb"]),
     Fmaj7: makeChord("Fmaj7", ["F", "A", "C", "E"]),
 
-    // Bb
-    Cm7: makeChord("Cm7", ["C", "Eb", "G", "Bb"]),
-    F7: makeChord("F7", ["F", "A", "C", "Eb"]),
-    Bbmaj7: makeChord("Bbmaj7", ["Bb", "D", "F", "A"]),
+    // C
+    Dm7: makeChord("Dm7", ["D", "F", "A", "C"]),
+    G7: makeChord("G7", ["G", "B", "D", "F"]),
+    Cmaj7: makeChord("Cmaj7", ["C", "E", "G", "B"]),
+
+    // G
+    Am7: makeChord("Am7", ["A", "C", "E", "G"]),
+    D7: makeChord("D7", ["D", "F#", "A", "C"]),
+    Gmaj7: makeChord("Gmaj7", ["G", "B", "D", "F#"]),
 };
 
 const allKeys = {
-    C: makeKey("C", [allChords.Dm7, allChords.G7, allChords.Cmaj7]),
-    F: makeKey("F", [allChords.Gm7, allChords.C7, allChords.Fmaj7]),
     Bb: makeKey("Bb", [allChords.Cm7, allChords.F7, allChords.Bbmaj7]),
+    F: makeKey("F", [allChords.Gm7, allChords.C7, allChords.Fmaj7]),
+    C: makeKey("C", [allChords.Dm7, allChords.G7, allChords.Cmaj7]),
+    G: makeKey("G", [allChords.Am7, allChords.D7, allChords.Gmaj7]),
 };
 
 function makeV7QuestionAndAnswer(key) {
