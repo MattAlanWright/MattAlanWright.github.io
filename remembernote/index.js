@@ -19,6 +19,7 @@ const keyQuestionCheckboxes = {
 const chordQuestionCheckboxes = {
     chordThird: document.getElementById("chord-third-checkbox"),
     chordSeventh: document.getElementById("chord-seventh-checkbox"),
+    chordNotes: document.getElementById("chord-notes-checkbox"),
 }
 
 const state = {
@@ -93,6 +94,13 @@ function makeTwoFiveOneQuestionAndAnswer(key) {
     };
 }
 
+function makeChordNotesQuestionAndAnswer(chord) {
+    return {
+        question: chord.name,
+        answer: `${chord.i} ${chord.iii} ${chord.v} ${chord.vii}`,
+    };
+}
+
 function makeThirdOfChordQuestionAndAnswer(chord) {
     return {
         question: `3rd of ${chord.name}`,
@@ -114,6 +122,7 @@ const keyQuestionGenerators = {
 }
 
 const chordQuestionGenerators = {
+    chordNotes: makeChordNotesQuestionAndAnswer,
     chordThird: makeThirdOfChordQuestionAndAnswer,
     chordSeventh: makeSeventhOfChordQuestionAndAnswer
 }

@@ -10,46 +10,12 @@
         <div class="container">
             <h1 class="page-header">🎵 RememberNote 🎵</h1>
 
-            <section class="config-card">
-                <p class="config-label">Keys:</p>
-                <div class="config-selector" id="key-selector">
-                    <input type="checkbox" id="c-checkbox" name="key" checked/>
-                    <label for="c-checkbox">C</label>
-
-                    <input type="checkbox" id="f-checkbox" name="key" />
-                    <label for="f-checkbox">F</label>
-
-                    <input type="checkbox" id="bb-checkbox" name="key" />
-                    <label for="bb-checkbox">Bb</label>
-                </div>
-            </section>
-
-            <section class="config-card">
-                <p class="config-label">Things To Learn:</p>
-                <div class="config-selector" id="test-selector">
-                    <input type="checkbox" id="two-checkbox" name="questions" checked />
-                    <label for="two-checkbox">ii</label>
-
-                    <input type="checkbox" id="five-seven-checkbox" name="questions" checked />
-                    <label for="five-seven-checkbox">V7</label>
-
-                    <input type="checkbox" id="two-five-one-checkbox" name="questions" checked />
-                    <label for="two-five-one-checkbox">ii V I</label>
-
-                    <input type="checkbox" id="chord-third-checkbox" name="questions" checked />
-                    <label for="chord-third-checkbox">Third</label>
-
-                    <input type="checkbox" id="chord-seventh-checkbox" name="questions" checked/>
-                    <label for="chord-seventh-checkbox">Seventh</label>
-                </div>
-            </section>
-
             <section class="flash-card-presentation">
                 <div class="flash-card-field">
                     <p class="flash-card-field-text" id="flash-card-question"></p>
                 </div>
                 <div class="flash-card-seperator"></div>
-                <div class="flash-card-field"></div>
+                <div class="flash-card-field">
                     <p class="flash-card-field-text" id="flash-card-answer" style="visibility: hidden;"></p>
                 </div>
                 <div class="flash-card-controls">
@@ -57,6 +23,62 @@
                     <button class="flash-card-btn" id="next-btn">Next</button>
                 </div>
             </section>
+
+        <details class="settings-details">
+            <summary class="settings-summary">Settings</summary>
+
+            <section class="config-card">
+                <p class="config-label">Keys:</p>
+                <div class="config-selector" id="key-selector">
+                    <input type="checkbox" id="c-checkbox" name="key" checked/>
+                    <label class="key-label" for="c-checkbox">C</label>
+
+                    <input type="checkbox" id="f-checkbox" name="key" />
+                    <label class="key-label" for="f-checkbox">F</label>
+
+                    <input type="checkbox" id="bb-checkbox" name="key" />
+                    <label class="key-label" for="bb-checkbox">Bb</label>
+                </div>
+            </section>
+
+            <section class="config-card">
+                <p class="config-label">Questions:</p>
+                <div class="config-selector" id="test-selector">
+
+                    <div class="question-selector">
+                        <input type="checkbox" id="two-checkbox" name="questions" checked />
+                        <label for="two-checkbox">ii chord of the key</label>
+                    </div>
+
+                    <div class="question-selector">
+                        <input type="checkbox" id="five-seven-checkbox" name="questions" checked />
+                        <label for="five-seven-checkbox">V7 chord of the key</label>
+                    </div>
+
+                    <div class="question-selector">
+                        <input type="checkbox" id="two-five-one-checkbox" name="questions" checked />
+                        <label for="two-five-one-checkbox">ii V I in the key</label>
+                    </div>
+
+                    <div class="question-selector">
+                        <input type="checkbox" id="chord-notes-checkbox" name="questions" checked/>
+                        <label for="chord-notes-checkbox">Notes of chords in the ii V I of the key</label>
+                    </div>
+
+                    <div class="question-selector">
+                        <input type="checkbox" id="chord-third-checkbox" name="questions" checked />
+                        <label for="chord-third-checkbox">Third of chords in the ii V I of the key</label>
+                    </div>
+
+                    <div class="question-selector">
+                        <input type="checkbox" id="chord-seventh-checkbox" name="questions" checked/>
+                        <label for="chord-seventh-checkbox">Seventh of chords in the ii V I of the key</label>
+                    </div>
+                </div>
+            </section>
+
+        </details>
+
         </div>
         <script src="index.js"></script>
     </body>
