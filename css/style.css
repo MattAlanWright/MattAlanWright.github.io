@@ -1,0 +1,82 @@
+/* All Sections */
+.resume-section {
+    border-top: 1px solid black;
+    padding: 10px 0;
+    line-height: 1.5;
+}
+
+.section-header {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.resume-section-card {
+    border-top: 1px solid lightgray;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.resume-section-card ul {
+    padding: 0 20px;
+}
+
+a:link {
+    color: #1098ad;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #1098ad;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Bio Section */
+.bio-header {
+    padding: 20px 0;
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* Summary Section */
+.summary-section {
+    border-top: 5px solid black;
+    padding: 30px 0;
+    line-height: 1.5;
+}
+
+/* Skills Section */
+.skills-list {
+    line-height: 1.8;
+}
+
+/* Experience Section */
+.work-dates {
+    color: gray;
+}
+
+.employer-summary {
+    padding: 10px 0;
+}
+
+/* Education Section */
+.education-detail {
+    border-top: 1px solid lightgray;
+    padding: 10px 0;
+    margin-bottom: 20px;
+}
+
+.education-detail ul {
+    padding: 0 20px;
+}
+
+.thesis-link {
+    padding: 10px 0;
+}
+
+.dates {
+    color: gray;
+}
