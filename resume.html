@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Matt Wright</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light">
+    <div class="container-fluid">
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/resume.html">Resume</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/ejsify.html">ejsify</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container p-4" style="max-width: 800px">
+    <header class="bio-header">
+        <h1 class="name">Matthew Wright</h1>
+        <p class="address">Halifax, Nova Scotia</p>
+    </header>
+
+    <section class="summary-section">
+        <p>Detail-oriented and highly focused systems software engineer with
+experience developing robust and maintainable production code. Lifetime learner and versatile
+thinker with experience across many software domains and a proven ability to dive deep into
+new problems.</p>
+    </section>
+
+    <details class="resume-section">
+
+        <summary class="section-header">Skills</summary>
+
+        <section class="resume-section-card">
+            <ul class="skills-list">
+                <li>
+                    Professional development experience in multiple languages, including:
+                    <ul>
+                        <li>C/C++11</li>
+                        <li>C#</li>
+                        <li>
+                            Python, including:
+                            <ul>
+                                <li>numpy</li>
+                                <li>matplotlib</li>
+                                <li>sklearn</li>
+                                <li>PyTorch</li>
+                                <li>LangChain</li>
+                            </ul>
+                        </li>
+                        <li>Rust</li>
+                    </ul>
+                </li>
+                <li>
+                    Machine learning expertise, including:
+                    <ul>
+                        <li>A masters degree focused on convolutional neural networks, optimization, and genetic programming.</li>
+                        <li>Professional experience designing and training CNNs from scratch.</li>
+                        <li>Design of object detection features leveraging YOLOv8.</li>
+                        <li>Development of AI tooling using ChatGPT and LangChain.</li>
+                    </ul>
+                </li>
+                <li>Experience with desktop UI frameworks including WPF, Qt, and PyQt.</li>
+                <li>Professional development experience in Windows and Linux.</li>
+                <li>Very capable and comfortable with Git.</li>
+                <li>Just enough HTML and CSS knowledge to make this web page.</li>
+            </ul>
+        </section>
+
+    </details>
+
+    <details class="resume-section">
+
+        <summary class="section-header">Experience</summary>
+
+        <section class="resume-section-card">
+            <h3 class="employer">Magnet Forensics</h3>
+            <p class="job-title">Software Engineer, Halifax, NS</p>
+            <p class="work-dates">Aug 2021 - Present </p>
+            <p class="employer-summary">Magnet Forensics builds state-of-the-art digital forensics and incident response tools for law enforcement agencies and corporate customers.</p>
+            <ul>
+                <li>Implemented a YOLOv8-based object detection library in C#/.NET which was the backbone of a customer-facing feature that allows forensics investigators to immediately skip to important parts of long video recordings.</li>
+            </ul>
+        </section>
+
+        <section class="resume-section-card">
+            <h3 class="employer">3Flares Technologies Inc.</h3>
+            <p class="job-title">Software Engineer, Halifax, NS</p>
+            <p class="work-dates">Feb 2021 - Aug 2021</p>
+            <p class="employer-summary">3Flares is a custom hardware and software design firm, specializing in embedded hardware and firmware.</p>
+            <ul>
+                <li>Designed and developed FreeRTOS-based embedded software in C using the IAR development environment.</li>
+                <li>Analyzed, debugged, maintained and added features to multiple embedded system
+designs.</li>
+                <li>Worked directly with clients to guide designs and manage expectations.</li>
+            </ul>
+        </section>
+
+        <section class="resume-section-card">
+            <h3 class="employer">4DNav LLC.</h3>
+            <p class="job-title">Software Engineer, Houston, TX</p>
+            <p class="work-dates">Nov 2020 - Mar 2021</p>
+            <p class="employer-summary">4DNav provides innovative modern offshore software packages for the oil and gas industry world-wide.</p>
+            <ul>
+                <li>Developed a custom visualization tool for real-time, real-world, and accurately
+positioned 3D display of offshore drilling equipment using the Unity game engine.</li>
+            </ul>
+        </section>
+
+        <section class="resume-section-card">
+            <h3 class="employer">Daxsonics Ultrasound Inc.</h3>
+            <p class="job-title">Software Engineer, Halifax, NS</p>
+            <p class="work-dates">Oct 2019 - Feb 2021</p>
+            <p class="employer-summary">Daxsonics provides custom ultrasound solutions, from transducer design to high-speed electronics, firmware and software.</p>
+            <ul>
+                <li>Developed firmware for a high voltage, high frequency pulser. Firmware written in C for an ATSAMD21 Microchip microcontroller, including hardware controls and user interface via SCPI over USB.</li>
+                <li>Worked on a team of two to design and implement a GUI in NanoGUI for a high framerate ultrasound imaging system, including the UI and the USB 3.0 video streaming interface to the imaging hardware.</li>
+            </ul>
+        </section>
+
+        <section class="resume-section-card">
+            <h3 class="employer">Alentic Microscience Inc.</h3>
+            <p class="job-title">Software Engineer, Halifax, NS</p>
+            <p class="work-dates">Feb 2018 - Sep 2019</p>
+            <p class="employer-summary">Alentic is a driven collection of scientists, technologist and developers working to empower clinical diagnosticians and frontline medical workers.</p>
+            <ul>
+                <li>Designed and implemented neural network applications using PyTorch, TensorFlow, and TensorRT.</li>
+                <li>Developed and deployed an HTTP server and REST API in C using libmicrohttpd on an NVidia single-board-computer.</li>
+                <li>Created an iOS app in Swift and Xcode to remotely control custom research hardware.</li>
+                <li>Contributed to a custom Linux kernel build for an NVidia single-board-computer.</li>
+            </ul>
+        </section>
+
+        <section class="resume-section-card">
+            <h3 class="employer">Daxsonics Ultrasound Inc.</h3>
+            <p class="job-title">Software Engineer, Halifax, NS</p>
+            <p class="work-dates">Sep 2014 - Feb 2018</p>
+            <p class="employer-summary">Daxsonics provides custom ultrasound solutions, from transducer design to high-speed electronics, firmware and software.</p>
+            <ul>
+                <li>Automated electrical and visual test and measurement procedures for ultrasound transducer production.</li>
+                <li>Worked remotely with the client and contractors on production C++ for a class II ultrasound medical device (10,000s LOC project).</li>
+                <li>Implemented vectorized, high-speed C++ module to process high-frequency ultrasound signals and measure transducer output power.</li>
+                <li>Led discussions with engineers from multiple disciplines and companies to determine software designs.</li>
+            </ul>
+        </section>
+
+        <section class="resume-section-card">
+            <h3 class="employer">Ultra Electronics Maritime Systems</h3>
+            <p class="job-title">Embedded Systems Engineer (Co-op student), Halifax, NS</p>
+            <p class="work-dates">Jan 2014 - Apr 2014</p>
+            <p class="employer-summary">Ultra Electronics delivers leading multi-mission solutions to protect our navies.</p>
+            <ul>
+                <li>Designed and implemented an embedded system used to process and transmit digital compass data, including hardware and software.</li>
+            </ul>
+        </section>
+    </details>
+
+    <details class="resume-section">
+
+        <summary class="section-header">Education</summary>
+
+        <section class="resume-section-card">
+            <h3 class="degree">Masters of Computer Science</h3>
+            <p class="school">Dalhousie University, Halifax, NS</p>
+            <p class="dates">2018-2020</p>
+            <p class="thesis-link">
+                <a href="https://web.cs.dal.ca/~mheywood/Thesis/MWright_MCS.pdf">
+                    Providing Real-Valued Actions for Tangled Program Graphs Under the CartPole Benchmark
+                </a>
+            </p>
+            <ul>
+                <li>Extended state-of-the-art genetic programming-based reinforcement learning
+algorithm Tangled Program Graphs, developed at Dalhousie by Dr. Malcolm Heywood and
+his student Dr. Stephen Kelly, to perform real-valued actions.</li>
+            </ul>
+        </section>
+
+        <section class="resume-section-card">
+            <h3 class="degree">Bachelor of Engineering</h3>
+            <p class="school">Dalhousie University, Halifax, NS</p>
+            <p class="dates">2011-2016</p>
+            <ul>
+                <li>Completed the Electrical and Computer Engineering co-discipline.</li>
+                <li>Completed co-operative education.</li>
+                <li>Graduated with Sexton Distinction (highest GPA in graduating class).</li>
+            </ul>
+        </section>
+
+    </details>
+</div>
+
+<p class="text-center text-muted">&copy; Matt Wright</p>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+</html>
